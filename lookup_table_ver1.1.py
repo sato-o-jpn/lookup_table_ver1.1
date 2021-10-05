@@ -4,7 +4,8 @@ from PIL import Image
 from sklearn.neighbors import NearestNeighbors
 import base64
 
-st.title("Look up Table 更新App Ver.1.0")
+# 注意事項説明
+st.title("Look up Table 更新App Ver.1.1")
 st.write('<span style="color:red;background:pink">"インポートするCSVの注意点"</span>', unsafe_allow_html=True)
 st.write("※ #VALUE!、#DIV/0! などが含まれているとエラー表示になります。")
 
@@ -28,9 +29,9 @@ if uploaded_file:
     df_train = dat_train.loc[:, ["KH2", "SH1", "SO1", "JS2"] ]
 
     # 検証用のCSVファイルの読み込み
-    dat_test = pd.read_csv("210908_fake_values.csv")
+    dat_test = pd.read_csv("fake_values.csv")
     # 検証用データの編集
-    df_test = dat_test.loc[:,["KH2", "SH1", "SO1", "JS2"]]
+    df_test = dat_test.loc[:,["C(1)", "C(2)", "C(3)", "C(4)"]]
     # 検証用ファイルの表示
     st.write("検証用ファイル最初の5行を表示")
     st.table(df_test.head())
